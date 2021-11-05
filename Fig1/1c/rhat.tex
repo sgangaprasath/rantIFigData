@@ -1,0 +1,39 @@
+\documentclass[border=10pt]{standalone}
+\usepackage{pgfplots, tikz, amsmath}
+\usepackage{filecontents}
+
+\usepgfplotslibrary{colorbrewer}
+\usepgfplotslibrary{fillbetween, external}
+
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[xlabel=$k$,
+ylabel= $\Re(\hat{r})$,
+width = 4.5 cm,
+height = 3.5 cm,
+transpose legend,
+legend columns=-1,
+%grid = both,
+ylabel near ticks,
+xlabel near ticks,
+%xmin=0.0,
+%xmax = 1.0,
+%cycle list/RdGy-11,
+%cycle list/Paired-10,
+cycle list name=Paired-10,
+%cycle list name=linestyles*,
+]
+\addplot+[thick] table[x index=0,y index=1] {./data/rhat.txt};
+\addplot+[thick] table[x index=0,y index=2] {./data/rhat.txt};
+\addplot+[thick] table[x index=0,y index=3] {./data/rhat.txt};
+\addplot+[thick] table[x index=0,y index=4] {./data/rhat.txt};
+\addplot+[thick] table[x index=0,y index=5] {./data/rhat.txt};
+\addplot+[thick] table[x index=0,y index=6] {./data/rhat.txt};
+\addplot+[thick] table[x index=0,y index=7] {./data/rhat.txt};
+\addplot+[thick] table[x index=0,y index=8] {./data/rhat.txt};
+\addplot+[thick] table[x index=0,y index=9] {./data/rhat.txt};
+\end{axis}
+\end{tikzpicture}
+
+%\input{rTNew.tex}
+\end{document}

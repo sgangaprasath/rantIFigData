@@ -1,0 +1,32 @@
+\documentclass[border=10pt]{standalone}
+\usepackage{pgfplots, tikz, amsmath}
+\usepackage{filecontents}
+
+\usepgfplotslibrary{colorbrewer}
+\usepgfplotslibrary{fillbetween, external}
+
+\definecolor{blueish}{RGB}{48,140,43}
+
+\begin{document}
+\begin{tikzpicture}
+  \begin{axis}[
+ 	ylabel={$A(t)/\pi R_o^2$},
+	xlabel= $t/T$,
+	width = 6cm,
+	height = 4.5cm,
+	xmin=0,
+	xmax=1,
+%	cycle list/Paired-5,
+	minor tick style={draw=none}
+	]
+%      \addplot +[blueish, thick, mark options={fill=blueish,scale=0.05}] table[x=x,y=y] {./data/AreaAverage.txt};
+      \addplot +[blueish, thick, no marks] table[x=x,y=y] {./data/AreaAverage.txt};
+      \addplot [name path=upper,draw=none] table[mark options={fill=blueish,scale=1}, x=x,y expr=\thisrow{y}+\thisrow{err}] {./data/AreaAverage.txt};
+      \addplot [name path=lower,draw=none] table[mark options={fill=black,scale=1}, x=x,y expr=\thisrow{y}-\thisrow{err}] {./data/AreaAverage.txt};
+      \addplot [fill=black!10] fill between[of=upper and lower];
+
+  \end{axis}
+\end{tikzpicture}
+
+%\input{rhoAnt.tex}
+\end{document}

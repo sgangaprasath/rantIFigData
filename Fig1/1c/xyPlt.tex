@@ -1,0 +1,38 @@
+\documentclass[border=10pt]{standalone}
+\usepackage{pgfplots, tikz, amsmath}
+\usepackage{filecontents}
+
+\usepgfplotslibrary{colorbrewer}
+\usepgfplotslibrary{fillbetween, external}
+
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[xlabel=$x$,
+ylabel= $y$,
+width = 4.0 cm,
+height = 4.0 cm,
+transpose legend,
+legend columns=-1,
+%grid = both,
+ylabel near ticks,
+xlabel near ticks,
+%xmin=0.0,
+%xmax = 1.0,
+%cycle list/RdGy-11,
+%cycle list/Paired-10,
+cycle list name=Paired-10,
+%cycle list name=linestyles*,
+]
+\addplot+[semithick] table[x index=0,y index=1] {./data/xyPlt0.txt};
+\addplot+[semithick] table[x index=0,y index=1] {./data/xyPlt50.txt};
+\addplot+[semithick] table[x index=0,y index=1] {./data/xyPlt100.txt};
+\addplot+[semithick] table[x index=0,y index=1] {./data/xyPlt150.txt};
+\addplot+[semithick] table[x index=0,y index=1] {./data/xyPlt200.txt};
+\addplot+[semithick] table[x index=0,y index=1] {./data/xyPlt250.txt};
+\addplot+[semithick] table[x index=0,y index=1] {./data/xyPlt300.txt};
+\addplot+[semithick] table[x index=0,y index=1] {./data/xyPlt350.txt};
+\addplot+[semithick] table[x index=0,y index=1] {./data/xyPlt400.txt};
+
+\end{axis}
+\end{tikzpicture}
+\end{document}
