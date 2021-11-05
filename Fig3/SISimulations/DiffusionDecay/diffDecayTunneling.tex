@@ -1,0 +1,105 @@
+\documentclass[border=10pt]{standalone}
+\usepackage{pgfplots,tikz,amsmath}
+\usepackage{filecontents}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{colorbrewer}
+\usepgfplotslibrary{colorbrewer}
+%\usepgfplotslibrary{colormaps}
+%\usepackage{pgfplotstable}
+\usepgfplotslibrary{external}
+%\tikzexternalize[shell escape=-shell-escape]
+\begin{document}
+
+\begin{tikzpicture}
+\begin{axis}[xlabel=$x$,
+ylabel= $c(x)$,
+width = 5.0 cm,
+height = 3.0 cm,
+transpose legend,
+legend columns=-1,
+%grid = both,
+ylabel near ticks,
+xlabel near ticks,
+xmin=0.0,
+xmax = 1.0,
+%cycle list/RdGy-11,
+%cycle list/Paired-10,
+cycle list name=Paired-10,
+%cycle list name=linestyles*,
+]
+\addplot+[mark = none, smooth, thick] table[x index=0,y index=1] {DcOnetunneling_19Jun.txt};
+\addplot+[mark = none, smooth, thick] table[x index=0,y index=25] {DcOnetunneling_19Jun.txt};
+\addplot+[mark = none, smooth, thick] table[x index=0,y index=49] {DcOnetunneling_19Jun.txt};
+\addplot+[mark = none, smooth, thick] table[x index=0,y index=73] {DcOnetunneling_19Jun.txt};
+\addplot+[mark = none, smooth, thick] table[x index=0,y index=97] {DcOnetunneling_19Jun.txt};
+\addplot+[mark = none, smooth, thick] table[x index=0,y index=121] {DcOnetunneling_19Jun.txt};
+\addplot+[mark = none, smooth, thick] table[x index=0,y index=145] {DcOnetunneling_19Jun.txt};
+\addplot+[mark = none, smooth, thick] table[x index=0,y index=169] {DcOnetunneling_19Jun.txt};
+\addplot+[mark = none, smooth, thick] table[x index=0,y index=193] {DcOnetunneling_19Jun.txt};
+\addplot+[mark = none, smooth, thick] table[x index=0,y index=217] {DcOnetunneling_19Jun.txt};
+\end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\begin{axis}[xlabel=$x$,
+ylabel= $\varrho_a(x)$,
+width = 5.0 cm,
+height = 3.0 cm,
+transpose legend,
+legend columns=-1,
+%grid = both,
+ylabel near ticks,
+xlabel near ticks,
+xmin=0.0,
+xmax = 1.0,
+%cycle list/RdGy-11,
+%cycle list/Paired-10,
+cycle list name=Paired-10,
+%cycle list name=Paired-5,
+%cycle list name=linestyles*,
+]
+\addplot+[mark = none, smooth, thick] table[x index=0,y index=2] {DcOnetunneling_19Jun.txt};
+\addplot+[mark = none, smooth, thick] table[x index=0,y index=26] {DcOnetunneling_19Jun.txt};
+\addplot+[mark = none, smooth, thick] table[x index=0,y index=50] {DcOnetunneling_19Jun.txt};
+\addplot+[mark = none, smooth, thick] table[x index=0,y index=74] {DcOnetunneling_19Jun.txt};
+\addplot+[mark = none, smooth, thick] table[x index=0,y index=98] {DcOnetunneling_19Jun.txt};
+\addplot+[mark = none, smooth, thick] table[x index=0,y index=122] {DcOnetunneling_19Jun.txt};
+\addplot+[mark = none, smooth, thick] table[x index=0,y index=146] {DcOnetunneling_19Jun.txt};
+\addplot+[mark = none, smooth, thick] table[x index=0,y index=170] {DcOnetunneling_19Jun.txt};
+\addplot+[mark = none, smooth, thick] table[x index=0,y index=194] {DcOnetunneling_19Jun.txt};
+\addplot+[mark = none, smooth, thick] table[x index=0,y index=218] {DcOnetunneling_19Jun.txt};
+\end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\begin{axis}[xlabel=$x$,
+ylabel= $\varrho_s(x)$,
+width = 5.0 cm,
+height = 3.0 cm,
+transpose legend,
+legend columns=-1,
+%grid = both,
+ylabel near ticks,
+xlabel near ticks,
+xmin=0.0,
+xmax = 1.0,
+%cycle list/RdGy-11,
+%cycle list/Paired-10,
+cycle list name=Paired-10,
+%cycle list name=Paired-5,
+%cycle list name=linestyles*,
+]
+\addplot+[mark = none, smooth, thick] table[x index=0,y index=3] {DcOnetunneling_19Jun.txt};
+\addplot+[mark = none, smooth, thick] table[x index=0,y index=27] {DcOnetunneling_19Jun.txt};
+\addplot+[mark = none, smooth, thick] table[x index=0,y index=51] {DcOnetunneling_19Jun.txt};
+\addplot+[mark = none, smooth, thick] table[x index=0,y index=75] {DcOnetunneling_19Jun.txt};
+\addplot+[mark = none, smooth, thick] table[x index=0,y index=99] {DcOnetunneling_19Jun.txt};
+\addplot+[mark = none, smooth, thick] table[x index=0,y index=123] {DcOnetunneling_19Jun.txt};
+\addplot+[mark = none, smooth, thick] table[x index=0,y index=147] {DcOnetunneling_19Jun.txt};
+\addplot+[mark = none, smooth, thick] table[x index=0,y index=171] {DcOnetunneling_19Jun.txt};
+\addplot+[mark = none, smooth, thick] table[x index=0,y index=195] {DcOnetunneling_19Jun.txt};
+\addplot+[mark = none, smooth, thick] table[x index=0,y index=219] {DcOnetunneling_19Jun.txt};
+\end{axis}
+\end{tikzpicture}
+
+\end{document}

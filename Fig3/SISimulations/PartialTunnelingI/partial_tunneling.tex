@@ -1,0 +1,105 @@
+\documentclass[border=10pt]{standalone}
+\usepackage{pgfplots,tikz,amsmath}
+\usepackage{filecontents}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{colorbrewer}
+\usepgfplotslibrary{colorbrewer}
+%\usepgfplotslibrary{colormaps}
+%\usepackage{pgfplotstable}
+\usepgfplotslibrary{external}
+%\tikzexternalize[shell escape=-shell-escape]
+\begin{document}
+
+\begin{tikzpicture}
+\begin{axis}[xlabel=$x$,
+ylabel= $c(x)$,
+width = 5.0 cm,
+height = 3.0 cm,
+transpose legend,
+legend columns=-1,
+%grid = both,
+ylabel near ticks,
+xlabel near ticks,
+xmin=0.0,
+xmax = 1.0,
+%cycle list/RdGy-11,
+cycle list/Paired-10,
+%cycle list name=Paired-10,
+%cycle list name=linestyles*,
+]
+\addplot+[mark = none, smooth, thick] table[x index=0,y index=1] {partialtunneling_19Jun.txt};
+\addplot+[mark = none, smooth, thick] table[x index=0,y index=25] {partialtunneling_19Jun.txt};
+\addplot+[mark = none, smooth, thick] table[x index=0,y index=49] {partialtunneling_19Jun.txt};
+\addplot+[mark = none, smooth, thick] table[x index=0,y index=73] {partialtunneling_19Jun.txt};
+\addplot+[mark = none, smooth, thick] table[x index=0,y index=97] {partialtunneling_19Jun.txt};
+\addplot+[mark = none, smooth, thick] table[x index=0,y index=121] {partialtunneling_19Jun.txt};
+%\addplot+[mark = none, smooth, thick] table[x index=0,y index=145] {partialtunneling_19Jun.txt};
+%\addplot+[mark = none, smooth, thick] table[x index=0,y index=169] {partialtunneling_19Jun.txt};
+%\addplot+[mark = none, smooth, thick] table[x index=0,y index=193] {partialtunneling_19Jun.txt};
+%\addplot+[mark = none, smooth, thick] table[x index=0,y index=217] {partialtunneling_19Jun.txt};
+\end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\begin{axis}[xlabel=$x$,
+ylabel= $\varrho_a(x)$,
+width = 5.0 cm,
+height = 3.0 cm,
+transpose legend,
+legend columns=-1,
+%grid = both,
+ylabel near ticks,
+xlabel near ticks,
+xmin=0.0,
+xmax = 1.0,
+%cycle list/RdGy-11,
+cycle list/Paired-10,
+%cycle list name=Paired-10,
+%cycle list name=Paired-5,
+%cycle list name=linestyles*,
+]
+\addplot+[mark = none, smooth, thick] table[x index=0,y index=2] {partialtunneling_19Jun.txt};
+\addplot+[mark = none, smooth, thick] table[x index=0,y index=26] {partialtunneling_19Jun.txt};
+\addplot+[mark = none, smooth, thick] table[x index=0,y index=50] {partialtunneling_19Jun.txt};
+\addplot+[mark = none, smooth, thick] table[x index=0,y index=74] {partialtunneling_19Jun.txt};
+\addplot+[mark = none, smooth, thick] table[x index=0,y index=98] {partialtunneling_19Jun.txt};
+\addplot+[mark = none, smooth, thick] table[x index=0,y index=122] {partialtunneling_19Jun.txt};
+%\addplot+[mark = none, smooth, thick] table[x index=0,y index=146] {partialtunneling_19Jun.txt};
+%\addplot+[mark = none, smooth, thick] table[x index=0,y index=170] {partialtunneling_19Jun.txt};
+%\addplot+[mark = none, smooth, thick] table[x index=0,y index=194] {partialtunneling_19Jun.txt};
+%\addplot+[mark = none, smooth, thick] table[x index=0,y index=218] {partialtunneling_19Jun.txt};
+\end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\begin{axis}[xlabel=$x$,
+ylabel= $\varrho_s(x)$,
+width = 5.0 cm,
+height = 3.0 cm,
+transpose legend,
+legend columns=-1,
+%grid = both,
+ylabel near ticks,
+xlabel near ticks,
+xmin=0.0,
+xmax = 1.0,
+%cycle list/RdGy-11,
+cycle list/Paired-10,
+%cycle list name=Paired-10,
+%cycle list name=Paired-5,
+%cycle list name=linestyles*,
+]
+\addplot+[mark = none, smooth, thick] table[x index=0,y index=3] {partialtunneling_19Jun.txt};
+\addplot+[mark = none, smooth, thick] table[x index=0,y index=27] {partialtunneling_19Jun.txt};
+\addplot+[mark = none, smooth, thick] table[x index=0,y index=51] {partialtunneling_19Jun.txt};
+\addplot+[mark = none, smooth, thick] table[x index=0,y index=75] {partialtunneling_19Jun.txt};
+\addplot+[mark = none, smooth, thick] table[x index=0,y index=99] {partialtunneling_19Jun.txt};
+\addplot+[mark = none, smooth, thick] table[x index=0,y index=123] {partialtunneling_19Jun.txt};
+%\addplot+[mark = none, smooth, thick] table[x index=0,y index=147] {partialtunneling_19Jun.txt};
+%\addplot+[mark = none, smooth, thick] table[x index=0,y index=171] {partialtunneling_19Jun.txt};
+%\addplot+[mark = none, smooth, thick] table[x index=0,y index=195] {partialtunneling_19Jun.txt};
+%\addplot+[mark = none, smooth, thick] table[x index=0,y index=219] {partialtunneling_19Jun.txt};
+\end{axis}
+\end{tikzpicture}
+
+\end{document}

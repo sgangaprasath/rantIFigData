@@ -1,0 +1,175 @@
+\documentclass[border=10pt]{standalone}
+\usepackage{pgfplots,tikz,amsmath}
+\usepackage{filecontents}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{colorbrewer}
+\usepgfplotslibrary{colorbrewer}
+%\usepgfplotslibrary{colormaps}
+%\usepackage{pgfplotstable}
+%\usepgfplotslibrary{external}
+%\tikzexternalize[shell escape=-shell-escape]
+\begin{document}
+
+\begin{tikzpicture}
+\begin{axis}[xlabel=$x$,
+ylabel= $c_p(x)$,
+width = 6.0 cm,
+height = 4.0 cm,
+transpose legend,
+legend columns=-1,
+%grid = both,
+ylabel near ticks,
+xlabel near ticks,
+xmin=0.0,
+xmax = 1.0,
+%cycle list/RdGy-11,
+%cycle list/Paired-10,
+cycle list name=Paired-10,
+%cycle list name=linestyles*,
+]
+\addplot+[mark = none, smooth, thick] table[x index=0,y index=1] {jammed.txt};
+\addplot+[mark = none, smooth, thick] table[x index=0,y index=13] {jammed.txt};
+\addplot+[mark = none, smooth, thick] table[x index=0,y index=25] {jammed.txt};
+\addplot+[mark = none, smooth, thick] table[x index=0,y index=37] {jammed.txt};
+\addplot+[mark = none, smooth, thick] table[x index=0,y index=49] {jammed.txt};
+\addplot+[mark = none, smooth, thick] table[x index=0,y index=73] {jammed.txt};
+\end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\begin{axis}[xlabel=$x$,
+ylabel= $\varrho_a(x)$,
+width = 6.0 cm,
+height = 4.0 cm,
+transpose legend,
+legend columns=-1,
+%grid = both,
+ylabel near ticks,
+xlabel near ticks,
+xmin=0.0,
+xmax=0.7,
+ymax=10,
+%cycle list/RdGy-11,
+%cycle list/Paired-10,
+cycle list name=Paired-10,
+%cycle list name=linestyles*,
+]
+\addplot+[mark = none, smooth, thick] table[x index=0,y index=2] {jammed.txt};
+\addplot+[mark = none, smooth, thick] table[x index=0,y index=14] {jammed.txt};
+\addplot+[mark = none, smooth, thick] table[x index=0,y index=26] {jammed.txt};
+\addplot+[mark = none, smooth, thick] table[x index=0,y index=38] {jammed.txt};
+\addplot+[mark = none, smooth, thick] table[x index=0,y index=50] {jammed.txt};
+\addplot+[mark = none, smooth, thick] table[x index=0,y index=74] {jammed.txt};
+\end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\begin{axis}[xlabel=$x$,
+ylabel= $\varrho_s(x)$,
+width = 6.0 cm,
+height = 4.0 cm,
+transpose legend,
+legend columns=-1,
+%grid = both,
+ylabel near ticks,
+xlabel near ticks,
+xmin=0.0,
+xmax = 1.0,
+%cycle list/RdGy-11,
+%cycle list/Paired-10,
+cycle list name=Paired-10,
+%cycle list name=linestyles*,
+]
+\addplot+[mark = none, smooth, thick] table[x index=0,y index=3] {jammed.txt};
+\addplot+[mark = none, smooth, thick] table[x index=0,y index=15] {jammed.txt};
+\addplot+[mark = none, smooth, thick] table[x index=0,y index=27] {jammed.txt};
+\addplot+[mark = none, smooth, thick] table[x index=0,y index=39] {jammed.txt};
+\addplot+[mark = none, smooth, thick] table[x index=0,y index=51] {jammed.txt};
+\addplot+[mark = none, smooth, thick] table[x index=0,y index=75] {jammed.txt};
+\end{axis}
+\end{tikzpicture}
+
+%\begin{tikzpicture}
+%\begin{axis}[xlabel=$x$,
+%ylabel= $\varrho_a(x)$,
+%width = 6.0 cm,
+%height = 4.0 cm,
+%transpose legend,
+%legend columns=-1,
+%%grid = both,
+%ylabel near ticks,
+%xlabel near ticks,
+%xmin=0.0,
+%xmax = 1.0,
+%%cycle list/RdGy-11,
+%%cycle list/Paired-10,
+%cycle list name=Paired-10,
+%%cycle list name=Paired-5,
+%%cycle list name=linestyles*,
+%]
+%\addplot+[mark = none, smooth, thick] table[x index=0,y index=2] {partial_tunneling.txt};
+%\addplot+[mark = none, smooth, thick] table[x index=0,y index=26] {partial_tunneling.txt};
+%\addplot+[mark = none, smooth, thick] table[x index=0,y index=50] {partial_tunneling.txt};
+%\addplot+[mark = none, smooth, thick] table[x index=0,y index=74] {partial_tunneling.txt};
+%\addplot+[mark = none, smooth, thick] table[x index=0,y index=98] {partial_tunneling.txt};
+%\addplot+[mark = none, smooth, thick] table[x index=0,y index=122] {partial_tunneling.txt};
+%\addplot+[mark = none, smooth, thick] table[x index=0,y index=146] {partial_tunneling.txt};
+%\addplot+[mark = none, smooth, thick] table[x index=0,y index=170] {partial_tunneling.txt};
+%\addplot+[mark = none, smooth, thick] table[x index=0,y index=194] {partial_tunneling.txt};
+%\addplot+[mark = none, smooth, thick] table[x index=0,y index=218] {partial_tunneling.txt};
+%\end{axis}
+%\end{tikzpicture}
+%
+%\begin{tikzpicture}
+%\begin{axis}[xlabel=$x$,
+%ylabel= $\varrho_s(x)$,
+%width = 6.0 cm,
+%height = 4.0 cm,
+%transpose legend,
+%legend columns=-1,
+%%grid = both,
+%ylabel near ticks,
+%xlabel near ticks,
+%xmin=0.0,
+%xmax = 1.0,
+%%cycle list/RdGy-11,
+%%cycle list/Paired-10,
+%cycle list name=Paired-10,
+%%cycle list name=Paired-5,
+%%cycle list name=linestyles*,
+%]
+%\addplot+[mark = none, smooth, thick] table[x index=0,y index=3] {partial_tunneling.txt};
+%\addplot+[mark = none, smooth, thick] table[x index=0,y index=27] {partial_tunneling.txt};
+%\addplot+[mark = none, smooth, thick] table[x index=0,y index=51] {partial_tunneling.txt};
+%\addplot+[mark = none, smooth, thick] table[x index=0,y index=75] {partial_tunneling.txt};
+%\addplot+[mark = none, smooth, thick] table[x index=0,y index=99] {partial_tunneling.txt};
+%\addplot+[mark = none, smooth, thick] table[x index=0,y index=123] {partial_tunneling.txt};
+%\addplot+[mark = none, smooth, thick] table[x index=0,y index=147] {partial_tunneling.txt};
+%\addplot+[mark = none, smooth, thick] table[x index=0,y index=171] {partial_tunneling.txt};
+%\addplot+[mark = none, smooth, thick] table[x index=0,y index=195] {partial_tunneling.txt};
+%\addplot+[mark = none, smooth, thick] table[x index=0,y index=219] {partial_tunneling.txt};
+%\end{axis}
+%\end{tikzpicture}
+
+%\begin{tikzpicture}
+%\begin{axis}[xlabel=$t$,
+%ylabel= $x_{\text{loc}}$,
+%width = 4.0 cm,
+%height = 4.0 cm,
+%transpose legend,
+%legend columns=-1,
+%%grid = both,
+%ylabel near ticks,
+%xlabel near ticks,
+%xmin=0.0,
+%xmax = 1.0,
+%%cycle list/RdGy-11,
+%%cycle list/Paired-10,
+%%cycle list name=Paired-5,
+%%cycle list name=linestyles*,
+%]
+%\addplot+[each nth point={3}, mark = none, smooth, very thick, black] table[x index=0,y index=1] {xLocTunnel.txt};
+%\end{axis}
+%\end{tikzpicture}
+
+\end{document}
