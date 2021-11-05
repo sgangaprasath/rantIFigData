@@ -1,0 +1,39 @@
+\documentclass[border=10pt]{standalone}
+\usepackage{pgfplots, amsmath}
+\usepackage{filecontents}
+
+\definecolor{color1}{rgb}{0.9,0.9,0.9}
+\definecolor{color2}{rgb}{0.7,0.7,0.7}
+\definecolor{color3}{rgb}{0.5,0.5,0.5}
+\definecolor{color4}{rgb}{0.3,0.3,0.3}
+\definecolor{color5}{rgb}{0.1,0.1,0.1}
+
+%\pgfplotsset{every axis plot/.append style={line width=1pt}}
+\pgfplotsset{every axis plot/.append style={line width=1pt},compat=1.8}
+
+\begin{document}
+	\begin{tikzpicture}
+	\begin{axis}[
+	xlabel=$t$,
+	ylabel= $\sigma_h$,
+	width = 7cm,
+	height = 5cm,
+	ymin = -0.45,
+	%ymin = 1,
+	%domain = 3.5:450,
+	%transpose legend,
+	%legend columns=-1,
+	%legend style={at={(0.5,1.30)},anchor=north},
+	minor tick style={draw=none},
+	legend entries ={$C=0$, $C=0.25$, $C=0.5$,$C=0.75$,$C=1$},
+	legend style={font=\tiny,at={(1,0)},anchor=south east,cells={anchor=west}},
+	]
+	\addplot +[color1,mark=none] table[x index=0,y index=1] {data_P_0.txt};
+	\addplot +[color2,mark=none] table[x index=0,y index=1] {data_P_25.txt};
+	\addplot +[color3,mark=none] table[x index=0,y index=1] {data_P_50.txt};
+	\addplot +[color4,mark=none] table[x index=0,y index=1] {data_P_75.txt};
+	\addplot +[color5,mark=none] table[x index=0,y index=1] {data_P_100.txt};
+	%\legend{P=0, P=0.25, P=0.5,P=0.75,P=1}
+	\end{axis}
+	\end{tikzpicture}
+\end{document}

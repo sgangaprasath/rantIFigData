@@ -1,0 +1,53 @@
+\documentclass[border=10pt]{standalone}
+\usepackage{pgfplots, amsmath, pgfplotstable}
+\usepackage{filecontents}
+\usepgfplotslibrary{colorbrewer}
+\usepgfplotslibrary{fillbetween}
+\definecolor{color1}{rgb}{0,0,0}
+\definecolor{color2}{rgb}{0.5,0.5,0.5}
+\definecolor{color3}{rgb}{0.5,0.5,0.5}
+
+
+\pgfplotsset{every axis plot/.append style={line width=1pt},compat=1.8}
+
+\begin{document}
+
+\begin{tikzpicture}
+\begin{axis}[
+ylabel=$K_b(t)$,
+xlabel= $t/t_{\rm s}$,
+width = 5cm,
+height = 4.5cm,
+cycle list/Paired-5,
+%cycle list name = Paired-10,
+minor tick style={draw=none},
+ymax=11]
+
+\addplot+[thick,no marks,x filter/.code={\pgfmathparse{#1*1/10}\pgfmathresult}] table[x=x,y=y] {data_K0.txt};
+\addplot [name path=upper,draw=none,x filter/.code={\pgfmathparse{#1*1/10}\pgfmathresult}] table[mark options={fill=black,scale=2}, x=x,y expr=\thisrow{y}+\thisrow{err}] {data_K0.txt};
+\addplot [name path=lower,draw=none,x filter/.code={\pgfmathparse{#1*1/10}\pgfmathresult}] table[mark options={fill=black,scale=2}, x=x,y expr=\thisrow{y}-\thisrow{err}] {data_K0.txt};
+\addplot [fill=black!10] fill between[of=upper and lower];
+
+\addplot+[thick,no marks,x filter/.code={\pgfmathparse{#1*1/10}\pgfmathresult}] table[x=x,y=y] {data_K25.txt};
+\addplot [name path=upper,draw=none,x filter/.code={\pgfmathparse{#1*1/10}\pgfmathresult}] table[mark options={fill=black,scale=2}, x=x,y expr=\thisrow{y}+\thisrow{err}] {data_K25.txt};
+\addplot [name path=lower,draw=none,x filter/.code={\pgfmathparse{#1*1/10}\pgfmathresult}] table[mark options={fill=black,scale=2}, x=x,y expr=\thisrow{y}-\thisrow{err}] {data_K25.txt};
+\addplot [fill=black!10] fill between[of=upper and lower];
+
+\addplot+[thick,no marks,x filter/.code={\pgfmathparse{#1*1/10}\pgfmathresult}] table[x=x,y=y] {data_K50.txt};
+\addplot [name path=upper,draw=none,x filter/.code={\pgfmathparse{#1*1/10}\pgfmathresult}] table[mark options={fill=black,scale=2}, x=x,y expr=\thisrow{y}+\thisrow{err}] {data_K50.txt};
+\addplot [name path=lower,draw=none,x filter/.code={\pgfmathparse{#1*1/10}\pgfmathresult}] table[mark options={fill=black,scale=2}, x=x,y expr=\thisrow{y}-\thisrow{err}] {data_K50.txt};
+\addplot [fill=black!10] fill between[of=upper and lower];
+
+\addplot+[thick,no marks,x filter/.code={\pgfmathparse{#1*1/10}\pgfmathresult}] table[x=x,y=y] {data_K75.txt};
+\addplot [name path=upper,draw=none,x filter/.code={\pgfmathparse{#1*1/10}\pgfmathresult}] table[mark options={fill=black,scale=2}, x=x,y expr=\thisrow{y}+\thisrow{err}] {data_K75.txt};
+\addplot [name path=lower,draw=none,x filter/.code={\pgfmathparse{#1*1/10}\pgfmathresult}] table[mark options={fill=black,scale=2}, x=x,y expr=\thisrow{y}-\thisrow{err}] {data_K75.txt};
+\addplot [fill=black!10] fill between[of=upper and lower];
+
+\addplot+[thick,no marks,x filter/.code={\pgfmathparse{#1*1/10}\pgfmathresult}] table[x=x,y=y] {data_K100.txt};
+\addplot [name path=upper,draw=none,x filter/.code={\pgfmathparse{#1*1/10}\pgfmathresult}] table[mark options={fill=black,scale=2}, x=x,y expr=\thisrow{y}+\thisrow{err}] {data_K100.txt};
+\addplot [name path=lower,draw=none,x filter/.code={\pgfmathparse{#1*1/10}\pgfmathresult}] table[mark options={fill=black,scale=2}, x=x,y expr=\thisrow{y}-\thisrow{err}] {data_K100.txt};
+\addplot [fill=black!10] fill between[of=upper and lower];
+
+\end{axis}
+\end{tikzpicture}
+\end{document}

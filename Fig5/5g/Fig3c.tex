@@ -1,0 +1,44 @@
+\documentclass[border=10pt]{standalone}
+\usepackage{pgfplots, amsmath}
+\usepackage{filecontents}
+\usepgfplotslibrary{fillbetween}
+\definecolor{color1}{rgb}{0,0,0}
+\definecolor{color2}{rgb}{0.5,0.5,0.5}
+\definecolor{color3}{rgb}{0.5,0.5,0.5}
+
+
+\pgfplotsset{every axis plot/.append style={line width=1pt},compat=1.8}
+
+\begin{document}
+%\begin{tikzpicture}
+%  \begin{axis}[
+%  	ylabel=$t_{\text{esc}}$,
+%	xlabel= $C$,
+%	width = 7cm,
+%	height = 5cm,
+%	minor tick style={draw=none},
+%	xtick=data,]
+%      \addplot+[color1, solid, thick, error bars/.cd, y dir=both, y explicit, error bar style={line width=1pt,solid}] 
+%      table[x index=0,y index=1,y error index=2] {data_ebar.txt};
+%      %\addplot +[color2,mark=o,only marks,mark size=2pt] table[x index=0,y index=1] {data_ebar_success.txt};
+%      %\addplot +[color3,mark=x,only marks,mark size=2pt] table[x index=0,y index=1] {data_ebar_fail.txt};
+%
+%  \end{axis}
+%\end{tikzpicture}
+
+\begin{tikzpicture}
+\begin{axis}[
+ylabel=$t_{\text{esc}}/t_{\text{s}}$,
+xlabel= $\textsf{C}$,
+width = 5cm,
+height = 3cm,
+minor tick style={draw=none},
+xtick=data]
+\addplot+[black, thick,mark options={fill=black},y filter/.code={\pgfmathparse{#1*1/10}\pgfmathresult}] table[x=x,y=y] {data_ebar.txt};
+\addplot [name path=upper,draw=none,y filter/.code={\pgfmathparse{#1*1/10}\pgfmathresult}] table[mark options={fill=black,scale=2}, x=x,y expr=\thisrow{y}+\thisrow{err}] {data_ebar.txt};
+\addplot [name path=lower,draw=none,y filter/.code={\pgfmathparse{#1*1/10}\pgfmathresult}] table[mark options={fill=black,scale=2}, x=x,y expr=\thisrow{y}-\thisrow{err}] {data_ebar.txt};
+\addplot [fill=black!10] fill between[of=upper and lower];
+
+\end{axis}
+\end{tikzpicture}
+\end{document}
